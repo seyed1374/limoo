@@ -2,11 +2,20 @@
   padding: var(--second-solid-padding);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   height: 100vh;
+  padding-top: 50px;
 }
 
+.otp-flash-back {
+  width: 16px;
+  height: 15px;
+}
+
+.otp-child {
+  margin-bottom: 130px;
+}
 
 .otp-title {
   font-size: var(--seventh-font-size);

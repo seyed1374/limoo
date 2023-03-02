@@ -1,9 +1,13 @@
-import {useParams, useNavigate, Link} from "react-router-dom"
+import {useParams, useNavigate } from "react-router-dom"
 import Button from "../component/Button"
 import {useState} from "react"
+import flash from "../../media/Vector 2.svg"
+import ComeBack from "../component/ComeBack"
 
-function Otp()
+function Otp({value})
 {
+    let navigate = useNavigate()
+
     const {phone} = useParams()
 
     const [otpCode, setOtpCode] = useState("")
@@ -20,21 +24,30 @@ function Otp()
         window.history.back()
     }
 
+    function onKeyDown(e)
+    {
+        if (e.keyCode === 13)
+        {
+            onSubmit()
+        }
+    }
+
     function onSubmit()
     {
-        navigate(`/login/Otp/Register`)
+        navigate(`/login/Otp/09${phone}/Register`)
+
     }
 
     return (
         <div className="otp">
-            <div className="otp-empty"/>
+            <ComeBack/>
             <div className="otp-child">
                 <div className="otp-title">کد تایید را وارد کنید</div>
                 <div className="otp-desc">کد تایید 4 رقمی ارسال شده به شماره همراه {phone} را وارد کنید.</div>
                 <div className="otp-edit" onClick={goBack}>ویرایش شماره</div>
-                <input className="otp-input" maxLength={4} type="tel" onChange={onOtpCodeChange}/>
+                <input className="otp-input" maxLength={4} type="tel" onChange={onOtpCodeChange} onKeyDown={onKeyDown}/>
             </div>
-                <Button isDisable={isBtnDisable} onClick={onSubmit}/>
+                <Button isDisable={isBtnDisable} onClick={onSubmit} value="ادامه"/>
         </div>
     )
 }

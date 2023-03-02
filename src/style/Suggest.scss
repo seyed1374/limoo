@@ -1,0 +1,64 @@
+.suggest {
+  padding: 50px var(--second-solid-padding) var(--second-solid-padding) var(--second-solid-padding) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.suggest-detail {
+}
+
+.suggest-detail-title {
+  font-size: var(--seventh-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-top: 40px;
+}
+
+.suggest-detail-desc {
+  font-size: var(--third-font-size);
+  color: var(--second-text-color);
+  margin-top: 8px;
+  text-align: justify;
+}
+
+.suggest-detail-cart {
+  margin-top: 20px;
+  font-size: var(--fifth-font-size);
+  font-family: "my-font-demibold", serif;
+  border: 1px solid var(--first-border-color);
+  padding: 20px var(--first-solid-padding) 15px var(--first-solid-padding);
+  border-radius: var(--first-radius);
+  border-top: 6px solid var(--second-border-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+.suggest-detail-cart-desc {
+  font: var(--third-font-size);
+  font-family: "my-font", serif;
+  margin-top: 5px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.suggest-detail-cart-desc-img {
+  margin-left: 5px;
+}
+
+.suggest-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.suggest-buttons-reject {
+  width: 85%;
+  height: 56px;
+  background: var(--first-border-color);
+  color: var(--third-text-color);
+  border-radius: var(--first-radius);
+  font-size: var(--sixth-font-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}

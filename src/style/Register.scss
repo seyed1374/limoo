@@ -1,0 +1,57 @@
+.register {
+  padding: var(--second-solid-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+.register-child {
+  margin-bottom: 130px;
+}
+
+.register-title {
+  font-size: var(--seventh-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-bottom: 40px;
+}
+
+.register-name {
+}
+
+.register-name-title {
+  font-family: "my-font-demibold", serif;
+  font-size: var(--sixth-font-size);
+  margin-bottom: 10px;
+}
+
+.register-name-input {
+  border: 1px solid var(--first-border-color);
+  border-radius: var(--first-radius);
+  width: 100%;
+  height: 56px;
+  font-size: var(--sixth-font-size);
+  color: var(--second-text-color);
+  padding:0 20px;
+}
+
+.register-last-name {
+  margin-top: 30px;
+}
+
+.register-last-name-title {
+  font-family: "my-font-demibold", serif;
+  font-size: var(--sixth-font-size);
+  margin-bottom: 10px;
+}
+
+.register-last-name-input {
+  border: 1px solid var(--first-border-color);
+  border-radius: var(--first-radius);
+  width: 100%;
+  height: 56px;
+  font-size: var(--sixth-font-size);
+  color: var(--second-text-color);
+  padding:0 20px;
+}

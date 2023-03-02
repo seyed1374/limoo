@@ -3,7 +3,7 @@ import Button from "../component/Button"
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-function Login()
+function Login({value})
 {
     let navigate = useNavigate()
     const [phone, setPhone] = useState("")
@@ -41,7 +41,7 @@ function Login()
                     <div className="login-input-detail-number">09</div>
                 </div>
             </div>
-            <Button isDisable={isBtnDisable} onClick={onSubmit}/>
+            <Button isDisable={isBtnDisable} onClick={onSubmit} value="ادامه"/>
         </div>
     )
 }

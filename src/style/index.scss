@@ -1,5 +1,9 @@
 @import "login";
 @import "otp";
+@import "Register";
+@import "Suggest";
+@import "DailyGoal";
+
 :root {
   --first-color: #EA264B;
   --second-color: #231F20;
@@ -7,7 +11,7 @@
   --first-background-color: #FFFFFF;
   --second-background-color: #F0F1F8;
   --third-background-color: #FFD400;
-  --forth-background-color: #E5B111;
+  --forth-background-color: #ECEFF1;
 
   --first-font-size: 10px;
   --first2-font-size: 12px;
@@ -24,6 +28,8 @@
   --forth-radius: 50px;
 
   --first-border-color: #D9D9D9;
+  --second-border-color: #4870C0;
+
 
   --first-text-color: #231F20;
   --second-text-color: #747474;

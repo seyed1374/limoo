@@ -3,7 +3,7 @@ import Button from "../component/Button"
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-function Login({value})
+function Login()
 {
     let navigate = useNavigate()
     const [phone, setPhone] = useState("")

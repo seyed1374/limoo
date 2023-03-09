@@ -1,0 +1,79 @@
+.add-package {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.add-package-header {
+
+}
+
+.add-package-header-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--second-solid-padding);
+}
+
+.add-package-header-title {
+  font-size: var(--fifth-font-size);
+  font-family: "my-font-demibold", serif;
+}
+
+.add-package-border {
+  border-bottom: 1px solid var(--forth-background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.add-package-body {
+  padding: var(--second-solid-padding);
+  margin-bottom: 230px;
+}
+
+.add-package-body-name {
+  font-size: var(--fifth-font-size);
+  margin-bottom: 10px;
+}
+
+.add-package-body-name-input {
+  border: 1px solid var(--first-border-color);
+  border-radius: var(--first-radius);
+  width: 100%;
+  height: 56px;
+  font-size: var(--third-font-size);
+  color: var(--second-text-color);
+  padding:0 20px;
+}
+
+.add-package-body-color {
+  margin-top: 30px;
+}
+
+.add-package-body-color-title {
+  font-size: var(--fifth-font-size);
+  margin-bottom: 10px;
+}
+
+.add-package-body-color-img {
+  border: 1px solid var(--first-border-color);
+  border-radius: var(--first-radius);
+  width: 100%;
+  height: 56px;
+  font-size: var(--sixth-font-size);
+  color: var(--second-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: scroll;
+}
+
+.add-package-body-color-img-detail {
+  margin-left: 30px;
+  width: 40px;
+  height: 40px;
+}
+
+.add-package-button {
+  padding: var(--second-solid-padding);
+}

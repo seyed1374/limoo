@@ -3,7 +3,7 @@ import ComeBack from "../component/ComeBack"
 import Button from "../component/Button"
 import {useNavigate} from "react-router-dom"
 
-function Suggest({value})
+function Suggest()
 {
     let navigate = useNavigate()
 

@@ -4,7 +4,7 @@ import {useState} from "react"
 import flash from "../../media/Vector 2.svg"
 import ComeBack from "../component/ComeBack"
 
-function Otp({value})
+function Otp()
 {
     let navigate = useNavigate()
 

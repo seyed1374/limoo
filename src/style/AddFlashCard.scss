@@ -1,0 +1,30 @@
+.add-flash-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.add-flash-card-img {
+  width: 330px;
+  height: 260px;
+  margin: auto;
+}
+
+.add-flash-card-desc {
+  font-size: var(--third-font-size);
+  color: var(--second-text-color);
+  padding-bottom: 90px;
+  width: 250px;
+  text-align: center;
+  margin: auto;
+}
+
+.add-flash-card-buttons {
+  padding: 0 calc(2*var(--second-solid-padding));
+  margin-bottom: 150px;
+}
+
+.add-flash-card-button {
+  margin-bottom: 10px;
+}

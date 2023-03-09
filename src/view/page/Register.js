@@ -2,7 +2,7 @@ import Button from "../component/Button"
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
-function Register({value})
+function Register()
 {
     let navigate = useNavigate()
 

@@ -1,7 +1,14 @@
 import ComeBack from "../component/ComeBack"
 import Button from "../component/Button"
+import {useNavigate} from "react-router-dom"
 
 function DailyGoal() {
+
+    let navigate = useNavigate()
+
+    function onSubmit() {
+        navigate(`/`)
+    }
     return(
         <div className="daily-goal">
             <div className="daily-goal-detail">
@@ -16,7 +23,7 @@ function DailyGoal() {
             </div>
             <div className="daily-goal-buttons">
                 <button className="daily-goal-buttons-reject">رد کردن</button>
-                <Button value="ادامه"/>
+                <Button value="ادامه" onClick={onSubmit}/>
             </div>
         </div>
     )

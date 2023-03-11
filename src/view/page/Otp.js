@@ -1,18 +1,30 @@
-import {useParams, useNavigate } from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import Button from "../component/Button"
-import {useState} from "react"
-import flash from "../../media/Vector 2.svg"
+import {useContext, useEffect, useState} from "react"
 import ComeBack from "../component/ComeBack"
+import userActions from "../../context/user/userActions"
+import {UserContext} from "../../context/user/userReducer"
 
 function Otp()
 {
+    const {dispatch} = useContext(UserContext)
     let navigate = useNavigate()
-
     const {phone} = useParams()
-
     const [otpCode, setOtpCode] = useState("")
-
     const isBtnDisable = otpCode.length < 4
+
+    useEffect(() =>
+    {
+        userActions.getOtpCode({phone})
+            .then(() =>
+            {
+                console.log("OK")
+            })
+            .catch(() =>
+            {
+                console.log("NOK")
+            })
+    }, [])
 
     function onOtpCodeChange(e)
     {
@@ -34,8 +46,16 @@ function Otp()
 
     function onSubmit()
     {
-        navigate(`/login/Otp/09${phone}/Register`)
-
+        userActions.verifyOtpCode({data: {code: otpCode, phone}, dispatch})
+            .then(is_sign_up =>
+            {
+                if (is_sign_up) navigate(`/Register`)
+                else navigate("/")
+            })
+            .catch(error =>
+            {
+                console.log(error?.response?.data?.message)
+            })
     }
 
     return (
@@ -47,7 +67,7 @@ function Otp()
                 <div className="otp-edit" onClick={goBack}>ویرایش شماره</div>
                 <input className="otp-input" maxLength={4} type="tel" onChange={onOtpCodeChange} onKeyDown={onKeyDown}/>
             </div>
-                <Button isDisable={isBtnDisable} onClick={onSubmit} value="ادامه"/>
+            <Button isDisable={isBtnDisable} onClick={onSubmit} value="ادامه"/>
         </div>
     )
 }

@@ -1,29 +1,48 @@
 import Button from "../component/Button"
-import {useState} from "react"
+import {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
+import userActions from "../../context/user/userActions"
+import {UserContext} from "../../context/user/userReducer"
 
 function Register()
 {
     let navigate = useNavigate()
+    const {dispatch} = useContext(UserContext)
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
 
-    const [name, setName] = useState("")
+    const isBtnDisable = lastName.length < 3
 
-    const isBtnDisable = name.length < 3
-
-    function onNameChange(e)
+    function onFirstNameChange(e)
     {
-        setName(e.target.value)
+        setFirstName(e.target.value)
     }
 
-    function onKeyDown(e) {
+    function onLastNameChange(e)
+    {
+        setLastName(e.target.value)
+    }
+
+    function onKeyDown(e)
+    {
         if (e.keyCode === 13)
         {
             onSubmit()
         }
     }
 
-    function onSubmit(){
-        navigate(`/Suggest`)
+    function onSubmit()
+    {
+        userActions.updateUser({data: {first_name: firstName, last_name: lastName}, dispatch})
+            .then(() =>
+            {
+                navigate(`/Suggest`)
+                console.log("OK")
+            })
+            .catch(() =>
+            {
+                console.log("NOK")
+            })
     }
 
 
@@ -33,10 +52,11 @@ function Register()
             <div className="register-child">
                 <div className="register-title">خودتون رو معرفی کنید</div>
                 <div className="register-name">
-                    <input className="register-name-input" placeholder="نام"/>
+                    <input className="register-name-input" placeholder="نام" onChange={onFirstNameChange}/>
                 </div>
                 <div className="register-last-name">
-                    <input className="register-last-name-input" placeholder="نام خانوادگی" onChange={onNameChange} onKeyDown={onKeyDown}/>
+                    <input className="register-last-name-input" placeholder="نام خانوادگی" onChange={onLastNameChange}
+                           onKeyDown={onKeyDown}/>
                 </div>
             </div>
             <Button isDisable={isBtnDisable} value="ثبت نام" onClick={onSubmit}/>

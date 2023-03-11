@@ -1,11 +1,11 @@
-
-function Button({isDisable, onClick,value }) {
-
-    function _onClick(){
+function Button({isDisable, onClick, value})
+{
+    function _onClick()
+    {
         if (!isDisable) onClick?.()
     }
 
-    return(
+    return (
         <div className={`login-button ${isDisable ? "" : "change-btn"}`} onClick={_onClick}>{value}</div>
     )
 }

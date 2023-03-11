@@ -1,15 +1,12 @@
 .homepage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
 }
 
 .homepage-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--second-solid-padding) var(--second-solid-padding) 8px var(--second-solid-padding);
+  height: 64px;
+  padding: 0 var(--second-solid-padding);
 }
 
 .homepage-header-add {
@@ -65,7 +62,12 @@
   justify-content: space-around;
   padding: var(--second-solid-padding);
   border-top: 1px solid var(--forth-background-color);
-  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
 }
 
 .homepage-footer-img {

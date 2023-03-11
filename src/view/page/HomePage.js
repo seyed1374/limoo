@@ -4,9 +4,13 @@ import edit from "../../media/Vector (2).png"
 import Button from "../component/Button"
 import profile from "../../media/Ellipse 31.png"
 import {useNavigate} from "react-router-dom"
+import {useContext} from "react"
+import {UserContext} from "../../context/user/userReducer"
 
 function HomePage()
 {
+    const {state:user} = useContext(UserContext)
+
     let navigate = useNavigate()
 
     function onAddClick(){
@@ -34,8 +38,8 @@ function HomePage()
             </div>
             <div className="homepage-footer">
                 <img className="homepage-footer-img" src={profile} alt="عکس"/>
-                <div className="homepage-footer-firstname">محسن</div>
-                <div className="homepage-footer-lastname">موسوی</div>
+                <div className="homepage-footer-firstname">{user.first_name}</div>
+                <div className="homepage-footer-lastname">{user.last_name}</div>
                 <Button value="تمرین"/>
             </div>
         </div>

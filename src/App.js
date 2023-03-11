@@ -7,24 +7,23 @@ import DailyGoal from "./view/page/DailyGoal"
 import HomePage from "./view/page/HomePage"
 import AddPackage from "./view/page/AddPackage"
 import AddFlashCard from "./view/page/AddFlashCard"
-
+import PrivateRoute from "./view/component/PrivateRoute"
 
 function App()
 {
     return (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/AddPackage/AddFlashCard/:name" element={<AddFlashCard/>}/>
-            <Route path="AddPackage" element={<AddPackage/>}/>
-            <Route path="HomePage" element={<HomePage/>}/>
-            <Route path="Suggest/DailyGoal" element={<DailyGoal/>}/>
-            <Route path="Suggest" element={<Suggest/>}/>
-            <Route path="/login/Otp/:phone/Register" element={<Register/>}/>
-            <Route path="/login/Otp/:phone" element={<Otp/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="*" element={<div>404</div>}/>
-        </Routes>
-    </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/AddPackage/AddFlashCard/:name" element={<AddFlashCard/>}/>
+                <Route path="AddPackage" element={<AddPackage/>}/>
+                <Route path="Suggest/DailyGoal" element={<DailyGoal/>}/>
+                <Route path="Suggest" element={<Suggest/>}/>
+                <Route path="/Register" element={<Register/>}/>
+                <Route path="/login/Otp/:phone" element={<Otp/>}/>
+                <Route path="/login" element={<PrivateRoute ifLogin={false}><Login/></PrivateRoute>}/>
+                <Route path="/" element={<PrivateRoute><HomePage/></PrivateRoute>}/>
+            </Routes>
+        </BrowserRouter>
     )
 }
 

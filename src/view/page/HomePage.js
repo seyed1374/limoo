@@ -9,13 +9,15 @@ import {UserContext} from "../../context/user/userReducer"
 
 function HomePage()
 {
-    const {state:user} = useContext(UserContext)
+    const {state: user} = useContext(UserContext)
 
     let navigate = useNavigate()
 
-    function onAddClick(){
+    function onAddClick()
+    {
         navigate(`/AddPackage`)
     }
+
     return (
         <div className="homepage">
             <div>
@@ -38,8 +40,10 @@ function HomePage()
             </div>
             <div className="homepage-footer">
                 <img className="homepage-footer-img" src={profile} alt="عکس"/>
-                <div className="homepage-footer-firstname">{user.first_name}</div>
-                <div className="homepage-footer-lastname">{user.last_name}</div>
+                <div className="homepage-footer-name">
+                    <span>{user.first_name} </span>
+                    {user.last_name}
+                </div>
                 <Button value="تمرین"/>
             </div>
         </div>

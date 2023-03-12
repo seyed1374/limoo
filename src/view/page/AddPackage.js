@@ -54,7 +54,7 @@ function AddPackage()
                 </div>
             </div>
             <div className="add-package-button">
-                <Button value="افزودن" isDisable={isBtnDisable} onClick={onSubmit}/>
+                    <Button value="افزودن" isDisable={isBtnDisable} onClick={onSubmit}/>
             </div>
         </div>
     )

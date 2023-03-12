@@ -39,9 +39,9 @@ function setUser({user, dispatch})
 function updateUser({data: {first_name, last_name}, dispatch})
 {
     return request.patch({url: "user", data: {first_name, last_name}})
-        .then(user =>
+        .then(res =>
         {
-            setUser({dispatch, user})
+            setUser({dispatch, user: res.data.data})
         })
 }
 

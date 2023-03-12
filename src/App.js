@@ -8,12 +8,14 @@ import HomePage from "./view/page/HomePage"
 import AddPackage from "./view/page/AddPackage"
 import AddFlashCard from "./view/page/AddFlashCard"
 import PrivateRoute from "./view/component/PrivateRoute"
+import MakingFlashCards from "./view/page/MakingFlashCards"
 
 function App()
 {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/MakingFlashCards" element={<MakingFlashCards/>}/>
                 <Route path="/AddPackage/AddFlashCard/:name" element={<AddFlashCard/>}/>
                 <Route path="AddPackage" element={<AddPackage/>}/>
                 <Route path="Suggest/DailyGoal" element={<DailyGoal/>}/>

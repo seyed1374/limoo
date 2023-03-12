@@ -1,11 +1,17 @@
 import ComeBack from "../component/ComeBack"
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import flashCards from "../../media/g10.png"
 import Button from "../component/Button"
 
 function AddFlashCard() {
 
     const {name} = useParams()
+    const isBtnDisable = true
+    let navigate = useNavigate()
+
+    function onMakeClick(){
+        navigate(`/MakingFlashCards`)
+    }
 
     return(
         <div className="add-flash-card">
@@ -20,8 +26,8 @@ function AddFlashCard() {
             <img className="add-flash-card-img" src={flashCards} alt="فلش کارت"/>
             <div className="add-flash-card-desc">با اضافه کردن فلش کارت های جدید بسته خود را کامل تر کنید.</div>
             <div className="add-flash-card-buttons">
-                <div className="add-flash-card-button"> <Button value="ساختن فلش کارت"/></div>
-                <Button value="بارگذاری فایل"/>
+                <div className="add-flash-card-button"> <Button value="ساختن فلش کارت" onClick={onMakeClick}/></div>
+                <Button isDisable={isBtnDisable} value="بارگذاری فایل"/>
             </div>
         </div>
     )

@@ -5,24 +5,29 @@ import Button from "../component/Button"
 import {useContext} from "react"
 import {PackContext} from "../../context/pack/packReducer"
 
-function AddFlashCard() {
+function AddFlashCard()
+{
 
-    const {name} = useParams()
     const isBtnDisable = true
     let navigate = useNavigate()
     const {state: pack} = useContext(PackContext)
 
 
-    function onMakeClick(){
+    function onMakeClick()
+    {
         navigate(`/MakingFlashCards`)
     }
 
-    return(
+    return (
         <div className="add-flash-card">
             <div className="add-package-header">
                 <div className="add-package-header-detail">
                     <ComeBack/>
-                    <div className="add-package-header-title">{pack.name}</div>
+                    {
+                        pack.map(item =>
+                            <div className="add-package-header-title">{item.name}</div>,
+                        )
+                    }
                     <div className="add-package-header-empty"/>
                 </div>
                 <div className="add-package-border"/>
@@ -30,7 +35,7 @@ function AddFlashCard() {
             <img className="add-flash-card-img" src={flashCards} alt="فلش کارت"/>
             <div className="add-flash-card-desc">با اضافه کردن فلش کارت های جدید بسته خود را کامل تر کنید.</div>
             <div className="add-flash-card-buttons">
-                <div className="add-flash-card-button"> <Button value="ساختن فلش کارت" onClick={onMakeClick}/></div>
+                <div className="add-flash-card-button"><Button value="ساختن فلش کارت" onClick={onMakeClick}/></div>
                 <Button isDisable={isBtnDisable} value="بارگذاری فایل"/>
             </div>
         </div>

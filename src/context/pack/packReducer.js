@@ -19,6 +19,7 @@ function PackProvider({children})
             case GET_PACK:
             {
                 const {pack} = payload
+                console.log(pack)
                 return pack
             }
             case ADD_PACK:

@@ -16,7 +16,7 @@ function App()
         <BrowserRouter>
             <Routes>
                 <Route path="/MakingFlashCards" element={<MakingFlashCards/>}/>
-                <Route path="/AddPackage/AddFlashCard/:name" element={<AddFlashCard/>}/>
+                <Route path="/AddPackage/AddFlashCard" element={<AddFlashCard/>}/>
                 <Route path="AddPackage" element={<AddPackage/>}/>
                 <Route path="Suggest/DailyGoal" element={<DailyGoal/>}/>
                 <Route path="Suggest" element={<Suggest/>}/>

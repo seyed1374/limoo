@@ -45,6 +45,8 @@ function updateUser({data: {first_name, last_name}, dispatch})
         })
 }
 
+
+
 const userActions = {
     getOtpCode,
     verifyOtpCode,

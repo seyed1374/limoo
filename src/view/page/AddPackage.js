@@ -1,12 +1,15 @@
 import ComeBack from "../component/ComeBack"
 import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
-import {useState} from "react"
+import {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
+import userActions from "../../context/user/userActions"
+import {UserContext} from "../../context/user/userReducer"
 
 function AddPackage()
 {
     let navigate = useNavigate()
+    const {dispatch} = useContext(UserContext)
 
     const [name,setName]=useState("")
     const isBtnDisable = name.length < 3
@@ -23,7 +26,15 @@ function AddPackage()
     }
 
     function onSubmit() {
-        navigate(`/AddPackage/AddFlashCard/${name}`)
+        userActions.makePack({data: {name: name}, dispatch})
+            .then(() =>
+            {
+                navigate(`/AddPackage/AddFlashCard`)
+            })
+            .catch(() =>
+            {
+                console.log("NOK")
+            })
     }
 
     return (

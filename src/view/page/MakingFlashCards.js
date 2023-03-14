@@ -8,7 +8,7 @@ function MakingFlashCards()
     const {name} = useParams()
     const [onCard , setOnCard] = useState("")
     const [onBackCard, setOnBackCard] = useState("")
-    const isBtnDisable = onCard.length < 2 & onBackCard.length < 2
+    const isBtnDisable = !(onCard.length > 1 && onBackCard.length > 1)
 
     function onChangeCard(e){
         setOnCard(e.target.value)

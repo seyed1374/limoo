@@ -3,24 +3,18 @@ import {useNavigate, useParams} from "react-router-dom"
 import flashCards from "../../media/g10.png"
 import Button from "../component/Button"
 import {useContext} from "react"
-import {UserContext} from "../../context/user/userReducer"
-import userActions from "../../context/user/userActions"
+import {PackContext} from "../../context/pack/packReducer"
 
 function AddFlashCard() {
 
     const {name} = useParams()
     const isBtnDisable = true
     let navigate = useNavigate()
-    const {state: pack} = useContext(UserContext)
+    const {state: pack} = useContext(PackContext)
 
 
     function onMakeClick(){
         navigate(`/MakingFlashCards`)
-    }
-
-    function packName()
-    {
-        userActions.getPack(name)
     }
 
     return(

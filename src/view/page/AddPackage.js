@@ -3,8 +3,8 @@ import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
 import {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
-import userActions from "../../context/user/userActions"
 import {UserContext} from "../../context/user/userReducer"
+import packActions from "../../context/pack/packActions"
 
 function AddPackage()
 {
@@ -26,7 +26,7 @@ function AddPackage()
     }
 
     function onSubmit() {
-        userActions.makePack({data: {name: name}, dispatch})
+        packActions.makePack({data: {name: name}, dispatch})
             .then(() =>
             {
                 navigate(`/AddPackage/AddFlashCard`)

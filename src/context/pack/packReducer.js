@@ -1,39 +1,33 @@
-import packActions from "./packActions"
-import {createContext, useEffect, useReducer} from "react"
-import {GET_PACK} from "./packTypes"
+import {createContext, useReducer} from "react"
+import {GET_PACK, ADD_PACK} from "./packTypes"
 
 export const PackContext = createContext([])
 
 function PackProvider({children})
 {
-    const initialState = null
+    const initialState = []
     const init = () => initialState
     const [state, dispatch] = useReducer(reducer, initialState, init)
-
-    useEffect(() =>
-    {
-        const pack = localStorage.getItem("pack")
-        const token = localStorage.getItem("token")
-        if (pack && token)
-        {
-            packActions.setPack({pack: JSON.parse(pack), dispatch})
-            packActions.getPack({dispatch})
-        }
-    }, [])
 
     function reducer(state, action)
     {
         const {type, payload} = action
+
 
         switch (type)
         {
             case GET_PACK:
             {
                 const {pack} = payload
-                return {
+                return pack
+            }
+            case ADD_PACK:
+            {
+                const {pack} = payload
+                return [
                     ...state,
-                    ...pack,
-                }
+                    pack,
+                ]
             }
             default:
                 return state

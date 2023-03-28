@@ -33,10 +33,20 @@ function patch({url, data})
     )
 }
 
+function del({url, data})
+{
+    const token = getToken()
+    return axios.delete(`${REST_CONSTANT.baseUrl}/${url}`,
+        data,
+        {headers: {Authorization: token}},
+    )
+}
+
 const request = {
     get,
     post,
-    patch
+    patch,
+    del
 }
 
 export default request

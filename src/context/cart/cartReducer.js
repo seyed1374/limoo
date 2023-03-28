@@ -1,30 +1,32 @@
 import {createContext, useReducer} from "react"
-import {GET_PACK, ADD_PACK} from "./packTypes"
+import {ADD_CART, GET_CART} from "./cartTypes"
 
-export const PackContext = createContext([])
 
-function PackProvider({children})
+export const CartContext = createContext(null)
+
+function CartProvider({children})
 {
-    const initialState = []
+    const initialState = null
     const init = () => initialState
     const [state, dispatch] = useReducer(reducer, initialState, init)
+
 
     function reducer(state, action)
     {
         const {type, payload} = action
         switch (type)
         {
-            case GET_PACK:
+            case GET_CART:
             {
-                const {pack} = payload
-                return pack
+                const {cart} = payload
+                return cart
             }
-            case ADD_PACK:
+            case ADD_CART:
             {
-                const {pack} = payload
+                const {cart} = payload
                 return [
                     ...state,
-                    pack,
+                    cart,
                 ]
             }
             default:
@@ -33,10 +35,10 @@ function PackProvider({children})
     }
 
     return (
-        <PackContext.Provider value={{state, dispatch}}>
+        <CartContext.Provider value={{state, dispatch}}>
             {children}
-        </PackContext.Provider>
+        </CartContext.Provider>
     )
 }
 
-export default PackProvider
+export default CartProvider

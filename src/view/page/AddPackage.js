@@ -3,13 +3,13 @@ import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
 import {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
-import {UserContext} from "../../context/user/userReducer"
 import packActions from "../../context/pack/packActions"
+import {PackContext} from "../../context/pack/packReducer"
 
 function AddPackage()
 {
     let navigate = useNavigate()
-    const {dispatch} = useContext(UserContext)
+    const {dispatch} = useContext(PackContext)
 
     const [name,setName]=useState("")
     const isBtnDisable = name.length < 3
@@ -26,10 +26,10 @@ function AddPackage()
     }
 
     function onSubmit() {
-        packActions.makePack({data: {name: name}, dispatch})
-            .then(() =>
+        packActions.makePack({data: {name}, dispatch})
+            .then(res =>
             {
-                navigate(`/AddPackage/AddFlashCard`)
+                navigate(`/AddPackage/AddFlashCard/${res.data.data._id}`)
             })
             .catch(() =>
             {

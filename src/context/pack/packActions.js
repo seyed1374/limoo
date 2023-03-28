@@ -10,6 +10,8 @@ function makePack({data: {name}, dispatch})
                 type: ADD_PACK,
                 payload: {pack: res.data.data}
             })
+
+            return res
         })
 }
 

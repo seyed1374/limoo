@@ -2,11 +2,11 @@ import {createContext, useReducer} from "react"
 import {ADD_CART, GET_CART} from "./cartTypes"
 
 
-export const CartContext = createContext(null)
+export const CartContext = createContext([])
 
 function CartProvider({children})
 {
-    const initialState = null
+    const initialState = []
     const init = () => initialState
     const [state, dispatch] = useReducer(reducer, initialState, init)
 

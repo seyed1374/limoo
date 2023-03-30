@@ -22,7 +22,7 @@ function AddFlashCard()
 
     function onMakeClick()
     {
-        navigate(`/MakingFlashCards`)
+        navigate(`/MakingFlashCards/${selectedPack.name}`)
     }
 
     return (

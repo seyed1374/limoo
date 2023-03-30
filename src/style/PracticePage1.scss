@@ -1,0 +1,61 @@
+.practice-page1-daily-goal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.practice-page1-daily-goal-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid var(--second-border-color);
+  border-radius: 100%;
+  width: 219px;
+  height: 219px;
+}
+
+.practice-page1-daily-goal-detail-percent {
+  font-size: 37px;
+  font-family: "my-font-demibold", serif;
+}
+
+.practice-page1-daily-goal-detail-text {
+  font-size: var(--first2-font-size);
+  font-family: "my-font-demibold", serif;
+}
+
+.practice-page1-flash-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.practice-page1-flash-cards-text {
+  color: var(--second-border-color);
+  font-size: var(--third-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-right: 10px;
+}
+
+.practice-page1-border-bottom {
+  border-bottom: 1px solid var(--first-border-color);
+  margin-top: 250px;
+}
+
+.practice-page1-buttons {
+  padding: 0 calc(2*var(--second-solid-padding));
+  margin-top: 30px;
+  text-align: center;
+}
+
+.practice-page1-buttons-upload {
+  font-size: var(--first2-font-size);
+  font-family: "my-font-demibold", serif;
+  color: var(--second-border-color);
+  margin-top: 20px;
+}

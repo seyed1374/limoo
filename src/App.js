@@ -9,12 +9,16 @@ import AddPackage from "./view/page/AddPackage"
 import AddFlashCard from "./view/page/AddFlashCard"
 import PrivateRoute from "./view/component/PrivateRoute"
 import MakingFlashCards from "./view/page/MakingFlashCards"
+import PracticePage1 from "./view/page/practice/PracticePage1"
+import PracticePage2 from "./view/page/practice/PracticePage2"
 
 function App()
 {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/PracticePage2" element={<PracticePage2/>}/>
+                <Route path="/PracticePage1/:pack_id" element={<PracticePage1/>}/>
                 <Route path="/MakingFlashCards" element={<MakingFlashCards/>}/>
                 <Route path="/AddPackage/AddFlashCard/:_id" element={<AddFlashCard/>}/>
                 <Route path="AddPackage" element={<AddPackage/>}/>

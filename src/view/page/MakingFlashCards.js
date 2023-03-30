@@ -1,9 +1,11 @@
 import ComeBack from "../component/ComeBack"
 import {useParams} from "react-router-dom"
 import Button from "../component/Button"
-import {useContext, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import cartActions from "../../context/cart/cartActions"
 import {CartContext} from "../../context/cart/cartReducer"
+import packActions from "../../context/pack/packActions"
+import {PackContext} from "../../context/pack/packReducer"
 
 function MakingFlashCards()
 {
@@ -14,6 +16,9 @@ function MakingFlashCards()
     const [onDescCard, setOnDescCard] = useState("")
     const isBtnDisable = !(onCard.length > 1 && onBackCard.length > 1)
 
+    const {state: pack} = useContext(PackContext)
+    const {_id} = useParams()
+    const selectedPack = pack.filter(item => item._id === _id)[0]
 
     function onChangeCard(e){
         setOnCard(e.target.value)

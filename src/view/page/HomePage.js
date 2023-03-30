@@ -3,11 +3,12 @@ import cart from "../../media/Vector.svg"
 import edit from "../../media/Vector (2).png"
 import Button from "../component/Button"
 import profile from "../../media/Ellipse 31.png"
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import {useContext, useEffect} from "react"
 import {UserContext} from "../../context/user/userReducer"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
+import {CartContext} from "../../context/cart/cartReducer"
 
 function HomePage()
 {
@@ -15,6 +16,9 @@ function HomePage()
 
     let navigate = useNavigate()
     const {state: pack, dispatch} = useContext(PackContext)
+
+    const {state: cart} = useContext(CartContext)
+    const {pack_id} = useParams()
 
     useEffect(() =>
     {
@@ -29,6 +33,10 @@ function HomePage()
         // formData.append("excel", file)
     }
 
+    function onPackClick(){
+        navigate(`PracticePage1/${pack_id}`)
+    }
+
     return (
         <div className="homepage">
             <div className="homepage-detail">
@@ -40,7 +48,7 @@ function HomePage()
                 <div className="homepage-header-border"/>
                 {
                     pack.map(item =>
-                        <div className="homepage-detail-cart" key={item._id}>
+                        <div className="homepage-detail-cart" key={item._id} onClick={onPackClick}>
                             <div className="homepage-detail-cart-head">
                                 {item.name}
                                 <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن"/>

@@ -1,6 +1,5 @@
 import request from "../../helpers/request"
 import {ADD_CART, GET_CART} from "./cartTypes"
-import {GET_USER} from "../user/userTypes"
 
 
 function makeCart({data , dispatch})

@@ -2,6 +2,7 @@ import logo from "../../media/Frame 1.svg"
 import Button from "../component/Button"
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
+import URLS from "../../constant/URLS"
 
 function Login()
 {
@@ -25,7 +26,7 @@ function Login()
 
     function onSubmit()
     {
-        navigate(`/login/Otp/09${phone}`)
+        navigate(URLS.otp("09"+phone))
     }
 
     return (

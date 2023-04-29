@@ -37,8 +37,10 @@ function del({url, data})
 {
     const token = getToken()
     return axios.delete(`${REST_CONSTANT.baseUrl}/${url}`,
-        data,
-        {headers: {Authorization: token}},
+        {
+            headers: {Authorization: token},
+            data,
+        },
     )
 }
 
@@ -46,7 +48,7 @@ const request = {
     get,
     post,
     patch,
-    del
+    del,
 }
 
 export default request

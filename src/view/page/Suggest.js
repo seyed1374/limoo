@@ -2,13 +2,14 @@ import cart from "../../media/Vector.svg"
 import ComeBack from "../component/ComeBack"
 import Button from "../component/Button"
 import {useNavigate} from "react-router-dom"
+import URLS from "../../constant/URLS"
 
 function Suggest()
 {
     let navigate = useNavigate()
 
     function onSubmit(){
-        navigate(`/Suggest/DailyGoal`)
+        navigate(URLS.dailyGoal)
     }
 
     return (

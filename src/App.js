@@ -5,29 +5,30 @@ import Register from "./view/page/Register"
 import Suggest from "./view/page/Suggest"
 import DailyGoal from "./view/page/DailyGoal"
 import HomePage from "./view/page/HomePage"
-import AddPackage from "./view/page/AddPackage"
-import AddFlashCard from "./view/page/AddFlashCard"
+import AddPack from "./view/page/AddPack"
 import PrivateRoute from "./view/component/PrivateRoute"
-import MakingFlashCards from "./view/page/MakingFlashCards"
-import PracticePage1 from "./view/page/practice/PracticePage1"
-import PracticePage2 from "./view/page/practice/PracticePage2"
+import AddFlashCards from "./view/page/addFlashCards"
+import Pack from "./view/page/pack"
+import PackCarts from "./view/page/PackCarts"
+import Profile from "./view/page/Profile"
+import URLS from "./constant/URLS"
 
 function App()
 {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/PracticePage2" element={<PracticePage2/>}/>
-                <Route path="/PracticePage1/:pack_id" element={<PracticePage1/>}/>
-                <Route path="/MakingFlashCards" element={<MakingFlashCards/>}/>
-                <Route path="/AddPackage/AddFlashCard/:_id" element={<AddFlashCard/>}/>
-                <Route path="AddPackage" element={<AddPackage/>}/>
-                <Route path="Suggest/DailyGoal" element={<DailyGoal/>}/>
-                <Route path="Suggest" element={<Suggest/>}/>
-                <Route path="/Register" element={<Register/>}/>
-                <Route path="/login/Otp/:phone" element={<Otp/>}/>
-                <Route path="/login" element={<PrivateRoute ifLogin={false}><Login/></PrivateRoute>}/>
-                <Route path="/" element={<PrivateRoute><HomePage/></PrivateRoute>}/>
+                <Route path={URLS.profile} element={<PrivateRoute><Profile/></PrivateRoute>}/>
+                <Route path={URLS.packCarts(":pack_id")} element={<PrivateRoute><PackCarts/></PrivateRoute>}/>
+                <Route path={URLS.pack(":pack_id")} element={<PrivateRoute><Pack/></PrivateRoute>}/>
+                <Route path={URLS.addFlashCart(":pack_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
+                <Route path={URLS.updateFlashCart(":pack_id",":cart_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
+                <Route path={URLS.addPack} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
+                <Route path={URLS.dailyGoal} element={<PrivateRoute><DailyGoal/></PrivateRoute>}/>
+                <Route path={URLS.register} element={<PrivateRoute><Register/></PrivateRoute>}/>
+                <Route path={URLS.otp(":phone")} element={<PrivateRoute ifLogin={false}><Otp/></PrivateRoute>}/>
+                <Route path={URLS.login} element={<PrivateRoute ifLogin={false}><Login/></PrivateRoute>}/>
+                <Route path="*" element={<PrivateRoute><HomePage/></PrivateRoute>}/>
             </Routes>
         </BrowserRouter>
     )

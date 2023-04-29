@@ -5,8 +5,9 @@ import {useContext, useState} from "react"
 import {useNavigate} from "react-router-dom"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
+import URLS from "../../constant/URLS"
 
-function AddPackage()
+function AddPack()
 {
     let navigate = useNavigate()
     const {dispatch} = useContext(PackContext)
@@ -29,7 +30,7 @@ function AddPackage()
         packActions.makePack({data: {name}, dispatch})
             .then(res =>
             {
-                navigate(`/AddPackage/AddFlashCard/${res.data.data._id}`)
+                navigate(URLS.pack(res.data.data._id))
             })
             .catch(() =>
             {
@@ -71,4 +72,4 @@ function AddPackage()
     )
 }
 
-export default AddPackage
+export default AddPack

@@ -4,6 +4,7 @@ import {useContext, useEffect, useState} from "react"
 import ComeBack from "../component/ComeBack"
 import userActions from "../../context/user/userActions"
 import {UserContext} from "../../context/user/userReducer"
+import URLS from "../../constant/URLS"
 
 function Otp()
 {
@@ -49,7 +50,7 @@ function Otp()
         userActions.verifyOtpCode({data: {code: otpCode, phone}, dispatch})
             .then(is_sign_up =>
             {
-                if (is_sign_up) navigate(`/Register`)
+                if (is_sign_up) navigate(URLS.register)
                 else navigate("/")
             })
             .catch(error =>

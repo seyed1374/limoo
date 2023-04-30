@@ -47,6 +47,11 @@ function HomePage()
         navigate(URLS.profile)
     }
 
+    function onPracticeClick()
+    {
+        navigate(URLS.practice)
+    }
+
     return (
         <div className="homepage">
             <div className="homepage-detail">
@@ -58,17 +63,17 @@ function HomePage()
                 <div className="homepage-header-border"/>
                 {
                     pack.map(item =>
-                            <div className="homepage-detail-cart" key={item._id} onClick={onPackClick(item._id)}>
-                                <div className="homepage-detail-cart-head">
-                                    {item.name}
-                                    <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن"/>
-                                </div>
-                                <div className="suggest-detail-cart-desc">
-                                    <img className="suggest-detail-cart-desc-img" src={cartImg} alt="فلش کارت"/>
-                                    {item.carts_count}
-                                    <span className="suggest-detail-cart-desc-name">فلش کارت</span>
-                                </div>
-                            </div>,
+                        <div className="homepage-detail-cart" key={item._id} onClick={onPackClick(item._id)}>
+                            <div className="homepage-detail-cart-head">
+                                {item.name}
+                                <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن"/>
+                            </div>
+                            <div className="suggest-detail-cart-desc">
+                                <img className="suggest-detail-cart-desc-img" src={cartImg} alt="فلش کارت"/>
+                                {item.carts_count}
+                                <span className="suggest-detail-cart-desc-name">فلش کارت</span>
+                            </div>
+                        </div>,
                     )
                 }
             </div>
@@ -78,7 +83,7 @@ function HomePage()
                     <span>{user.first_name} </span>
                     {user.last_name}
                 </div>
-                <Button value="تمرین"/>
+                <Button value="تمرین" onClick={onPracticeClick}/>
             </div>
         </div>
     )

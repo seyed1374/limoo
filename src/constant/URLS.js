@@ -10,6 +10,7 @@ const URLS = {
     register: "/register",
     otp: parameter => `/otp/${parameter}`,
     login: "/login",
+    practice:"/practice"
 }
 
 export default URLS

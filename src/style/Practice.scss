@@ -1,0 +1,70 @@
+.practice-header {
+  padding: var(--second-solid-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.practice-header-title {
+  font-size: var(--fifth-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-left: 5%;
+}
+
+.practice-header-progress {
+  margin: 8px var(--second-solid-padding);
+  height: 20px;
+  position: relative;
+}
+
+.practice-header-progress-bar {
+  background-color: var(--forth-background-color);
+  border-radius: var(--first-radius);
+  width: 100%;
+  bottom: 0;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 10px;
+}
+
+.practice-header-progress-toggle {
+  background-color: var(--third-background-color);
+  border-radius: var(--first-radius);
+  display: block;
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20%;
+}
+
+.practice-carts {
+  margin: var(--second-solid-padding);
+  height: 650px;
+
+}
+
+.practice-cart {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--first-radius);
+  background-color: var(--second-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.practice-cart-detail {
+  font-size: var(--seventh-font-size);
+  font-family: "my-font-bold", serif;
+  color: var(--first-background-color);
+}
+
+.practice-cart-answer {
+  font-size: var(--forth-font-size);
+  color: var(--first-background-color);
+  margin-bottom: 20px;
+}

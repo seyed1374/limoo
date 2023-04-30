@@ -2,7 +2,6 @@ import Login from "./view/page/Login"
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Otp from "./view/page/Otp"
 import Register from "./view/page/Register"
-import Suggest from "./view/page/Suggest"
 import DailyGoal from "./view/page/DailyGoal"
 import HomePage from "./view/page/HomePage"
 import AddPack from "./view/page/AddPack"
@@ -12,12 +11,14 @@ import Pack from "./view/page/pack"
 import PackCarts from "./view/page/PackCarts"
 import Profile from "./view/page/Profile"
 import URLS from "./constant/URLS"
+import Practice from "./view/page/Practice"
 
 function App()
 {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path={URLS.practice} element={<PrivateRoute><Practice/></PrivateRoute>}/>
                 <Route path={URLS.profile} element={<PrivateRoute><Profile/></PrivateRoute>}/>
                 <Route path={URLS.packCarts(":pack_id")} element={<PrivateRoute><PackCarts/></PrivateRoute>}/>
                 <Route path={URLS.pack(":pack_id")} element={<PrivateRoute><Pack/></PrivateRoute>}/>

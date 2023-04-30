@@ -20,7 +20,7 @@ function AddFlashCards()
     const {pack_id, cart_id} = useParams()
     const isUpdate = !!cart_id
     const selectedPack = pack.filter(item => item._id === pack_id)[0]
-    const updatedCart = carts?.filter?.(item => item._id === cart_id)[0]
+    const updatedCart = carts?.[pack_id]?.filter?.(item => item._id === cart_id)[0]
 
     useEffect(() =>
     {
@@ -69,7 +69,7 @@ function AddFlashCards()
         }
     }
 
-    if (updatedCart)
+    if (!isUpdate || updatedCart)
     {
         return (
             <div className="making-flash-cards">
@@ -82,15 +82,17 @@ function AddFlashCards()
                     <div className="add-package-border"/>
                     <div className="making-flash-cards-body">
                         <div className="making-flash-cards-body-name"> روی کارت</div>
-                        <input className="making-flash-cards-body-name-input" placeholder="متن روی کارت را بنویسید"
+                        <input className="making-flash-cards-body-name-input"
+                               placeholder="متن روی کارت را بنویسید"
                                onChange={onChangeCard} defaultValue={updatedCart?.front}/>
                         <div className="making-flash-cards-body-name"> پشت کارت</div>
-                        <input className="making-flash-cards-body-name-input" placeholder="متن پشت کارت را بنویسید"
-                               onChange={onChangeBackCard}/>
+                        <input className="making-flash-cards-body-name-input"
+                               placeholder="متن پشت کارت را بنویسید"
+                               onChange={onChangeBackCard} defaultValue={updatedCart?.back}/>
                         <div className="making-flash-cards-body-name">مثال یا مترادف</div>
                         <input className="making-flash-cards-body-name-input"
                                placeholder="مثال یا مترادفی برای آن بنویسید"
-                               onChange={onChangeDescCard}/>
+                               onChange={onChangeDescCard} defaultValue={updatedCart?.back_description}/>
                     </div>
                 </div>
                 <div className="making-flash-cards-btn"><Button value="ذخیره" isDisable={isBtnDisable}
@@ -101,7 +103,7 @@ function AddFlashCards()
     }
     else
     {
-        return ("loading...")
+        return "loading..."
     }
 }
 

@@ -13,7 +13,7 @@ import URLS from "../../constant/URLS"
 function Pack()
 {
     const {pack_id} = useParams()
-    const isBtnDisable = true
+    const isBtnDisable = false
     let navigate = useNavigate()
     const {state, dispatch} = useContext(CartContext)
     const carts = state[pack_id]
@@ -82,7 +82,7 @@ function Pack()
                                     </div>
                                     <div className="practice-page1-border-bottom"/>
                                     <div className="practice-page1-buttons">
-                                        <Button isDisable={isBtnDisable} value="ساختن فلش کارت"/>
+                                        <Button isDisable={isBtnDisable} value="ساختن فلش کارت"  onClick={onMakeClick}/>
                                         <button className="practice-page1-buttons-upload">بارگذاری فایل</button>
                                     </div>
                                 </div>

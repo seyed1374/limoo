@@ -46,7 +46,7 @@
 
 }
 
-.practice-cart {
+.practice-cart-front {
   width: 100%;
   height: 100%;
   border-radius: var(--first-radius);
@@ -55,15 +55,55 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+
+  &.review{
+    display: none;
+  }
 }
 
 .practice-cart-detail {
   font-size: var(--seventh-font-size);
   font-family: "my-font-bold", serif;
   color: var(--first-background-color);
+  text-align: center;
+  white-space: pre-line;
 }
 
 .practice-cart-answer {
+  font-size: var(--forth-font-size);
+  color: var(--first-background-color);
+  margin-bottom: 20px;
+}
+
+.practice-cart-back {
+  width: 100%;
+  height: 100%;
+  padding: 0 var(--second-solid-padding);
+  border-radius: var(--first-radius);
+  background-color: var(--second-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.practice-cart-detail-desc {
+  color: var(--first-background-color);
+  font-size: var(--fifth-font-size);
+  text-align: center;
+  white-space: pre-line;
+  font-family: "my-font", serif;
+  margin-top: 10px;
+}
+
+.practice-cart-back-reaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.practice-cart-back-reaction-btn {
   font-size: var(--forth-font-size);
   color: var(--first-background-color);
   margin-bottom: 20px;

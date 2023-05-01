@@ -25,19 +25,22 @@ function Practice()
         setBackCart(!backCart)
     }
 
-    function onNextCart()
+    function showNextCart()
     {
         setShowCartIndex(showCartIndex + 1)
         setBackCart(!backCart)
-        showingCart()
     }
 
-    function onKnownClick()
+    function onReactClick({know})
     {
-    }
-
-    function onUnableClick()
-    {
+        return function ()
+        {
+            request.post({url: "cart-review", data: {know, cart_id: showingCart._id}})
+                .then(() =>
+                {
+                    showNextCart()
+                })
+        }
     }
 
     return (
@@ -64,9 +67,9 @@ function Practice()
                         <div className="practice-cart-detail">{showingCart?.back}
                             <div className="practice-cart-detail-desc">{showingCart?.back_description}</div>
                         </div>
-                        <div className="practice-cart-back-reaction" onClick={onNextCart}>
-                            <button className="practice-cart-back-reaction-btn" onClick={onKnownClick}>no</button>
-                            <div className="practice-cart-back-reaction-btn" onClick={onUnableClick}>ye</div>
+                        <div className="practice-cart-back-reaction">
+                            <button className="practice-cart-back-reaction-btn" onClick={onReactClick({know: false})}>no</button>
+                            <div className="practice-cart-back-reaction-btn" onClick={onReactClick({know: true})}>ye</div>
                         </div>
                     </div>
                 }

@@ -8,6 +8,9 @@ function Practice()
     const [showCartIndex, setShowCartIndex] = useState(0)
     const showingCart = carts[showCartIndex]
     const [backCart, setBackCart] = useState(false)
+    const percent = (showCartIndex + 1) / carts.length * 100 + "%"
+    console.log(percent)
+
 
     useEffect(() =>
     {
@@ -52,7 +55,7 @@ function Practice()
             </div>
             <div className="practice-header-progress">
                 <div className="practice-header-progress-bar"/>
-                <div className="practice-header-progress-toggle"></div>
+                <div className="practice-header-progress-toggle" style={{width: percent}}></div>
             </div>
             <div className="practice-carts">
                 <div className={backCart ? "practice-cart-front review" : "practice-cart-front"}>
@@ -68,8 +71,11 @@ function Practice()
                             <div className="practice-cart-detail-desc">{showingCart?.back_description}</div>
                         </div>
                         <div className="practice-cart-back-reaction">
-                            <button className="practice-cart-back-reaction-btn" onClick={onReactClick({know: false})}>no</button>
-                            <div className="practice-cart-back-reaction-btn" onClick={onReactClick({know: true})}>ye</div>
+                            <button className="practice-cart-back-reaction-btn"
+                                    onClick={onReactClick({know: false})}>no
+                            </button>
+                            <div className="practice-cart-back-reaction-btn" onClick={onReactClick({know: true})}>ye
+                            </div>
                         </div>
                     </div>
                 }

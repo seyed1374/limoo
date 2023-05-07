@@ -11,6 +11,9 @@
 @import "PracticePage2";
 @import "profile";
 @import "Practice";
+@import "input";
+@import "validation-error";
+@import "editInformation";
 
 :root {
   --first-color: #EA264B;
@@ -23,6 +26,7 @@
   --fifth-background-color: #6D6D6D;
   --sixth-background-color: #ECECEC;
   --seventh-background-color:rgba(48, 215, 181, 0.7);
+  --eighth-background-color: rgba(236, 239, 241, 0.8);
 
   --first-font-size: 10px;
   --first2-font-size: 12px;
@@ -50,10 +54,13 @@
   --forth-text-color: #00B8D4;
   --fifth-text-color: #FF7272;
   --sixth-text-color: #707070;
-  --seventh-text-color: #D41C1B;
+  --seventh-text-color: #F23218;
+  --eighth-text-color: #757779;
+  --ninth-text-color: #484848;
 
   --first-solid-padding: calc(0.03 * 100vw);
   --second-solid-padding: calc(0.05 * 100vw);
+  --third-solid-padding: calc(0.08 * 100vw);
 
   --first-shadow: 0 4px 12px #E9E9F3;
 }

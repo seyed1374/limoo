@@ -1,17 +1,25 @@
 import edit from "../../media/Vector4.svg"
 import edit2 from "../../media/edit2.svg"
 import filter from "../../media/Vector7.svg"
-import cartActions from "../../context/cart/cartActions"
-import {useContext, useState} from "react"
+;import {useContext, useState} from "react"
 import {CartContext} from "../../context/cart/cartReducer"
 import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
+import cartImg from "../../media/Vector.svg"
 
-function PackCart({pack_id, data: {_id, front, back}})
+function PackCart({pack_id, data: {_id, name, carts_count}})
 {
     let navigate = useNavigate()
     const {dispatch} = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
+
+    function onPackClick(pack_id)
+    {
+        return function ()
+        {
+            navigate(URLS.pack(pack_id))
+        }
+    }
 
     function toggleModal()
     {
@@ -21,24 +29,27 @@ function PackCart({pack_id, data: {_id, front, back}})
     function onRemove()
     {
         toggleModal()
-        cartActions.deleteCart({pack_id, cart_id: _id, dispatch})
     }
 
     function onEdit()
     {
         toggleModal()
-        navigate(URLS.updateFlashCart(pack_id, _id))
+        navigate(URLS.updatePack(pack_id))
     }
 
     return (
         <>
-            <div className="practice-page2-flash-card">
-                <img className="practice-page2-flash-card-edit" src={edit} alt="edit" onClick={toggleModal}/>
-                <div>
-                    <div className="practice-page2-flash-card-on-card">{front}</div>
-                    <div className="practice-page2-flash-card-back-card">{back}</div>
+            <div className="homepage-detail-cart">
+                <div className="homepage-detail-cart-head">
+                    {name}
+                    <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن" onClick={toggleModal}/>
                 </div>
-            </div>
+                <div className="suggest-detail-cart-desc" onClick={onPackClick(_id)}>
+                    <img className="suggest-detail-cart-desc-img" src={cartImg} alt="فلش کارت"/>
+                    {carts_count}
+                    <span className="suggest-detail-cart-desc-name">فلش کارت</span>
+                </div>
+            </div>,
 
             {
                 showModal &&

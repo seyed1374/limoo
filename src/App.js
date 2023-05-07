@@ -12,6 +12,8 @@ import PackCarts from "./view/page/PackCarts"
 import Profile from "./view/page/Profile"
 import URLS from "./constant/URLS"
 import Practice from "./view/page/Practice"
+import EditInformation from "./view/page/EditInformation"
+
 
 function App()
 {
@@ -19,11 +21,13 @@ function App()
         <BrowserRouter>
             <Routes>
                 <Route path={URLS.practice} element={<PrivateRoute><Practice/></PrivateRoute>}/>
+                <Route path={URLS.editInformation} element={<PrivateRoute><EditInformation/></PrivateRoute>}/>
                 <Route path={URLS.profile} element={<PrivateRoute><Profile/></PrivateRoute>}/>
                 <Route path={URLS.packCarts(":pack_id")} element={<PrivateRoute><PackCarts/></PrivateRoute>}/>
                 <Route path={URLS.pack(":pack_id")} element={<PrivateRoute><Pack/></PrivateRoute>}/>
                 <Route path={URLS.addFlashCart(":pack_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
                 <Route path={URLS.updateFlashCart(":pack_id",":cart_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
+                <Route path={URLS.updatePack(":pack_id")} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
                 <Route path={URLS.addPack} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
                 <Route path={URLS.dailyGoal} element={<PrivateRoute><DailyGoal/></PrivateRoute>}/>
                 <Route path={URLS.register} element={<PrivateRoute><Register/></PrivateRoute>}/>

@@ -2,10 +2,11 @@ import ComeBack from "../component/ComeBack"
 import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
 import {useContext, useState} from "react"
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
 import URLS from "../../constant/URLS"
+import Input from "../component/input/Input"
 
 function AddPack()
 {
@@ -14,6 +15,9 @@ function AddPack()
 
     const [name,setName]=useState("")
     const isBtnDisable = name.length < 3
+    const {pack_id} = useParams()
+    const isUpdate = !!pack_id
+
 
     function onNameChange(e){
        setName(e.target.value)
@@ -49,8 +53,19 @@ function AddPack()
                 <div className="add-package-border"/>
             </div>
             <div className="add-package-body">
-                <div className="add-package-body-name">نام بسته</div>
-                <input className="add-package-body-name-input" placeholder="نام بسته خود را وارد کنید" onChange={onNameChange} onKeyDown={onKeyDown}/>
+                <Input
+                    className="add-package-body-name-input"
+                    label="نام بسته"
+                    placeholder="نام بسته خود را وارد کنید"
+                    onChange={onNameChange}
+                    onKeyDown={onKeyDown}
+                    name="name"
+                    focusOnMount
+                    showClear
+                    disabled={false}
+                    disableSubmit={() => console.log("fuck")}
+                    onSubmit={() => console.log("ok")}
+                />
                 <div className="add-package-body-color">
                     <div className="add-package-body-color-title">رنگ</div>
                     <div className="add-package-body-color-img">

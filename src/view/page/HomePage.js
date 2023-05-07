@@ -10,6 +10,7 @@ import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
 import {CartContext} from "../../context/cart/cartReducer"
 import URLS from "../../constant/URLS"
+import PackList from "../component/PackList"
 
 function HomePage()
 {
@@ -34,14 +35,6 @@ function HomePage()
         // formData.append("excel", file)
     }
 
-    function onPackClick(pack_id)
-    {
-        return function ()
-        {
-            navigate(URLS.pack(pack_id))
-        }
-    }
-
     function onProfileClick()
     {
         navigate(URLS.profile)
@@ -63,17 +56,7 @@ function HomePage()
                 <div className="homepage-header-border"/>
                 {
                     pack.map(item =>
-                        <div className="homepage-detail-cart" key={item._id} onClick={onPackClick(item._id)}>
-                            <div className="homepage-detail-cart-head">
-                                {item.name}
-                                <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن"/>
-                            </div>
-                            <div className="suggest-detail-cart-desc">
-                                <img className="suggest-detail-cart-desc-img" src={cartImg} alt="فلش کارت"/>
-                                {item.carts_count}
-                                <span className="suggest-detail-cart-desc-name">فلش کارت</span>
-                            </div>
-                        </div>,
+                        <PackList key={item._id} pack_id={pack_id} data={item}/>
                     )
                 }
             </div>

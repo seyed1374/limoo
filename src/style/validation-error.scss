@@ -1,0 +1,27 @@
+.validation-err {
+  font-family: "my-font-regular", serif;
+  font-size: 12px;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  transition: height ease 0.3s, opacity ease 0.3s;
+
+  &.no-space {
+    position: absolute;
+  }
+
+  &.error {
+    color: #F23218;
+  }
+
+  &.success {
+    color: #00AB50;
+  }
+
+  &.show {
+    opacity: 1;
+    height: 40px;
+  }
+}

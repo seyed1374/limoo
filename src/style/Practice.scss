@@ -37,8 +37,7 @@
   left: 0;
   position: absolute;
   top: 0;
-  width: 20%;
-}
+  transition: width ease 0.1s;}
 
 .practice-carts {
   margin: var(--second-solid-padding);

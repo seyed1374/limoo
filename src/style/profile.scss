@@ -1,7 +1,4 @@
 .profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
 }
 
@@ -32,25 +29,40 @@
 
 .profile-body {
   text-align: center;
-  margin-bottom: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px var(--second-solid-padding) 0 var(--second-solid-padding);
+  background-color: var(--eighth-background-color);
+  padding: var(--second-solid-padding);
+  border-radius: var(--first-radius);
 }
 
 .profile-body-img {
-  width: 75px;
-  height: 75px;
+  width: 48px;
+  height: 48px;
   border-radius: 100%;
 }
 
+.profile-body-information {
+  display: flex;
+  align-items: end;
+}
+
+.profile-body-information-detail {
+  margin-right: 12px;
+}
+
 .profile-body-name {
-  font-size: var(--third-text-color);
+  font-size: var(--fifth-font-size);
   font-family: "my-font-demibold", serif;
-  margin-top: 8px;
 }
 
 .profile-body-phone {
-  font-size: var(--fifth-font-size);
-  color: var(--sixth-font-size);
+  font-size: var(--first2-font-size);
+  color: var(--eighth-text-color);
   margin-top: 8px;
+  text-align: right;
 }
 
 .profile-body-edit {
@@ -63,9 +75,6 @@
 .profile-body-edit-img {
   width: 20px;
   height: 20px;
-  border: 1px solid var(--fifth-text-color);
-  border-radius: 100%;
-  padding: 3px;
 }
 
 .profile-body-edit-text {
@@ -76,12 +85,10 @@
 }
 
 .profile-footer {
-  border: 1px solid var(--sixth-background-color);
-  background: var(--sixth-background-color);
-  margin: var(--second-solid-padding);
+  background-color: var(--eighth-background-color);
+  margin: 12px var(--second-solid-padding);
   padding: var(--second-solid-padding);
   border-radius: var(--first-radius);
-  margin-bottom: 120px;
 }
 
 .profile-footer-detail {
@@ -92,7 +99,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .profile-footer-detail-target-title {
@@ -108,21 +114,20 @@
 
 .profile-footer-detail-target-desc {
   font-size: var(--third-font-size);
-  font-family: "my-font-demibold", serif;
+  color: var(--ninth-text-color);
 }
 
 .profile-footer-modal-border {
-  border: 1px solid rgba(97, 99, 108, 0.3);
+  border: 1px solid var(--third-text-color);
   margin: 20px 30px 20px 0;
 }
 
 .profile-footer-detail-exit {
   display: flex;
   align-items: center;
-  font-size: var(--third-font-size);
+  font-size: var(--fifth-font-size);
   font-family: "my-font-demibold", serif;
   color: var(--seventh-text-color);
-  margin-bottom: 10px;
 }
 
 .profile-footer-switch-key {
@@ -132,7 +137,7 @@
   transform: perspective(0);
   width: 38px;
 
-  &.on{
+  &.on {
     background-color: var(--seventh-background-color);
     border-radius: var(--first-radius);
     transition: width .2s ease;

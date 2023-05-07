@@ -20,7 +20,6 @@ function HomePage()
     const {state: pack, dispatch} = useContext(PackContext)
 
     const {state: cart} = useContext(CartContext)
-    const {pack_id} = useParams()
 
     useEffect(() =>
     {
@@ -56,7 +55,7 @@ function HomePage()
                 <div className="homepage-header-border"/>
                 {
                     pack.map(item =>
-                        <PackList key={item._id} pack_id={pack_id} data={item}/>
+                        <PackList key={item._id} data={item}/>
                     )
                 }
             </div>

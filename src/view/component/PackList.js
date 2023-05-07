@@ -7,10 +7,9 @@ import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
 import cartImg from "../../media/Vector.svg"
 
-function PackCart({pack_id, data: {_id, name, carts_count}})
+function PackList({pack_id, data: {_id, name, carts_count}})
 {
     let navigate = useNavigate()
-    const {dispatch} = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
 
     function onPackClick(pack_id)
@@ -35,6 +34,7 @@ function PackCart({pack_id, data: {_id, name, carts_count}})
     {
         toggleModal()
         navigate(URLS.updatePack(pack_id))
+        console.log(pack_id)
     }
 
     return (
@@ -71,4 +71,4 @@ function PackCart({pack_id, data: {_id, name, carts_count}})
     )
 }
 
-export default PackCart
+export default PackList

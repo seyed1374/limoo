@@ -1,27 +1,25 @@
 import edit from "../../media/Vector4.svg"
 import edit2 from "../../media/edit2.svg"
 import filter from "../../media/Vector7.svg"
-;import {useContext, useState} from "react"
-import {CartContext} from "../../context/cart/cartReducer"
+
+import {useState} from "react"
 import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
 import cartImg from "../../media/Vector.svg"
 
-function PackList({pack_id, data: {_id, name, carts_count}})
+function PackList({data: {_id, name, carts_count}})
 {
     let navigate = useNavigate()
     const [showModal, setShowModal] = useState(false)
 
-    function onPackClick(pack_id)
+    function onPackClick()
     {
-        return function ()
-        {
-            navigate(URLS.pack(pack_id))
-        }
+        navigate(URLS.pack(_id))
     }
 
-    function toggleModal()
+    function toggleModal(e)
     {
+        e.stopPropagation()
         setShowModal(showModal => !showModal)
     }
 
@@ -33,23 +31,22 @@ function PackList({pack_id, data: {_id, name, carts_count}})
     function onEdit()
     {
         toggleModal()
-        navigate(URLS.updatePack(pack_id))
-        console.log(pack_id)
+        navigate(URLS.updatePack(_id))
     }
 
     return (
         <>
-            <div className="homepage-detail-cart">
+            <div className="homepage-detail-cart" onClick={onPackClick}>
                 <div className="homepage-detail-cart-head">
                     {name}
                     <img className="homepage-detail-cart-edit" src={edit} alt="تغییر دادن" onClick={toggleModal}/>
                 </div>
-                <div className="suggest-detail-cart-desc" onClick={onPackClick(_id)}>
+                <div className="suggest-detail-cart-desc">
                     <img className="suggest-detail-cart-desc-img" src={cartImg} alt="فلش کارت"/>
                     {carts_count}
                     <span className="suggest-detail-cart-desc-name">فلش کارت</span>
                 </div>
-            </div>,
+            </div>
 
             {
                 showModal &&

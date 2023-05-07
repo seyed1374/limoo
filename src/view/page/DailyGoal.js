@@ -1,10 +1,8 @@
 import ComeBack from "../component/ComeBack"
 import Button from "../component/Button"
 import {useNavigate} from "react-router-dom"
-import cartActions from "../../context/cart/cartActions"
 import {useContext, useState} from "react"
 import {UserContext} from "../../context/user/userReducer"
-import URLS from "../../constant/URLS"
 import userActions from "../../context/user/userActions"
 
 function DailyGoal() {

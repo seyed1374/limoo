@@ -3,7 +3,6 @@ import Button from "../component/Button"
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 import URLS from "../../constant/URLS"
-import Input from "../component/input/Input"
 
 function Login()
 {

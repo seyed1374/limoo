@@ -1,5 +1,4 @@
 import ComeBack from "../component/ComeBack"
-import pic from "../../media/Ellipse 31.png"
 import edit from "../../media/Group 50.svg"
 import target from "../../media/Vector9.svg"
 import theme from "../../media/Group_2794.svg"
@@ -10,7 +9,6 @@ import {useContext, useState} from "react"
 import {UserContext} from "../../context/user/userReducer"
 import {useNavigate} from "react-router-dom"
 import URLS from "../../constant/URLS"
-
 
 function Profile()
 {

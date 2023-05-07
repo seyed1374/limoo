@@ -1,14 +1,11 @@
 import limoo from "../../media/لـیـمـو.svg"
-import cartImg from "../../media/Vector.svg"
-import edit from "../../media/Vector (2).png"
 import Button from "../component/Button"
 import profile from "../../media/Ellipse 31.png"
-import {Link, useNavigate, useParams} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import {useContext, useEffect} from "react"
 import {UserContext} from "../../context/user/userReducer"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
-import {CartContext} from "../../context/cart/cartReducer"
 import URLS from "../../constant/URLS"
 import PackList from "../component/PackList"
 
@@ -18,8 +15,6 @@ function HomePage()
 
     let navigate = useNavigate()
     const {state: pack, dispatch} = useContext(PackContext)
-
-    const {state: cart} = useContext(CartContext)
 
     useEffect(() =>
     {

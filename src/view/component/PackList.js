@@ -1,15 +1,19 @@
 import edit from "../../media/Vector4.svg"
 import edit2 from "../../media/edit2.svg"
 import filter from "../../media/Vector7.svg"
-import {useState} from "react"
+import {useContext, useState} from "react"
 import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
 import cartImg from "../../media/Vector.svg"
+import packActions from "../../context/pack/packActions"
+import {PackContext} from "../../context/pack/packReducer"
 
 function PackList({data: {_id, name, carts_count}})
 {
     let navigate = useNavigate()
     const [showModal, setShowModal] = useState(false)
+    const {dispatch} = useContext(PackContext)
+
 
     function onPackClick()
     {
@@ -25,6 +29,7 @@ function PackList({data: {_id, name, carts_count}})
     function onRemove()
     {
         toggleModal()
+        packActions.deletePack({pack_id:_id, dispatch})
     }
 
     function onEdit()

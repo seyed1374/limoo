@@ -1,4 +1,4 @@
-import {ADD_PACK, GET_PACK, UPDATE_PACK} from "./packTypes"
+import {ADD_PACK, DELETE_PACK, GET_PACK, UPDATE_PACK} from "./packTypes"
 import request from "../../helpers/request"
 
 function makePack({data: {name}, dispatch})
@@ -39,10 +39,23 @@ function updatePack({pack_id, name, dispatch})
         })
 }
 
+function deletePack({pack_id, dispatch})
+{
+    return request.del({url: "pack", data: {pack_id}})
+        .then(() =>
+        {
+            dispatch({
+                type: DELETE_PACK,
+                payload: {pack_id},
+            })
+        })
+}
+
 const packActions = {
     makePack,
     getPack,
     updatePack,
+    deletePack
 }
 
 export default packActions

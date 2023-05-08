@@ -1,5 +1,6 @@
 import {createContext, useReducer} from "react"
-import {GET_PACK, ADD_PACK, UPDATE_PACK} from "./packTypes"
+import {GET_PACK, ADD_PACK, UPDATE_PACK, DELETE_PACK} from "./packTypes"
+import {DELETE_CART} from "../cart/cartTypes"
 
 export const PackContext = createContext([])
 
@@ -30,13 +31,21 @@ function PackProvider({children})
             case UPDATE_PACK:
             {
                 const {pack,pack_id} = payload
-                let selectedPack = pack?.filter?.(item => item._id === pack_id)?.[0] ?? {}
+                let selectedPack = pack?.filter?.(item => item._id === pack_id)?.[0]
                 return{
                     ...state,
                     selectedPack
                 }
             }
-
+            case DELETE_PACK:
+            {
+                const {pack_id} = payload
+                let selectedPack = state[pack_id]
+                return {
+                    ...state,
+                    [pack_id]: selectedPack,
+                }
+            }
             default:
                 return state
         }

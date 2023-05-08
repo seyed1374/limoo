@@ -27,9 +27,9 @@ function getPack({dispatch})
         })
 }
 
-function updatePack({pack_id, name, dispatch})
+function updatePack({data, dispatch})
 {
-    return request.patch({url: "pack", data: {pack_id, name}})
+    return request.patch({url: "pack", data})
         .then(res =>
         {
             dispatch({
@@ -55,7 +55,7 @@ const packActions = {
     makePack,
     getPack,
     updatePack,
-    deletePack
+    deletePack,
 }
 
 export default packActions

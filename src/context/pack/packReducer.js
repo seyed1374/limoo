@@ -30,11 +30,10 @@ function PackProvider({children})
             }
             case UPDATE_PACK:
             {
-                const {pack,pack_id} = payload
-                let selectedPack = pack?.filter?.(item => item._id === pack_id)?.[0]
+                const {pack} = payload
                 return{
                     ...state,
-                    selectedPack
+                    [pack._id]: pack,
                 }
             }
             case DELETE_PACK:

@@ -42,12 +42,13 @@ function AddPack()
 
     function onSubmit()
     {
-        if(isUpdate){
+        if (isUpdate)
+        {
             packActions.updatePack({
-                data: {pack_id:_id, name},
-                dispatch,
+                data: {pack_id: _id, name, dispatch},
             })
-        }else
+        }
+        else
         {
             packActions.makePack({data: {name}, dispatch})
                 .then(res =>
@@ -68,10 +69,10 @@ function AddPack()
                 <div className="add-package-header">
                     <div className="add-package-header-detail">
                         <ComeBack/>
-                        <div className={updatedPack? "add-package-header-title none" : "add-package-header-title" }>
+                        <div className={updatedPack ? "add-package-header-title none" : "add-package-header-title"}>
                             افزودن بسته ی جدید
                         </div>
-                        <div className={updatedPack? "add-package-header-title" : "add-package-header-title none" }>
+                        <div className={updatedPack ? "add-package-header-title" : "add-package-header-title none"}>
                             {updatedPack?.name}
                         </div>
                         <div className="add-package-header-empty"/>
@@ -108,11 +109,13 @@ function AddPack()
                     </div>
                 </div>
                 <div className="add-package-button">
-                    <Button value="افزودن" isDisable={isBtnDisable} onClick={onSubmit}/>
+                    <Button value="ذخیره" isDisable={isBtnDisable} onClick={onSubmit}/>
                 </div>
             </div>
         )
-    }else {
+    }
+    else
+    {
         return "loading..."
     }
 }

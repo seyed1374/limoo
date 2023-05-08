@@ -20,7 +20,7 @@ function AddFlashCards()
     const {pack_id, cart_id} = useParams()
     const isUpdate = !!cart_id
     const selectedPack = pack.filter(item => item._id === pack_id)[0]
-    const updatedCart = carts?.[pack_id]?.filter?.(item => item._id === cart_id)[0]
+        const updatedCart = carts?.[pack_id]?.filter?.(item => item._id === cart_id)[0]
 
     useEffect(() =>
     {

@@ -27,7 +27,7 @@ function App()
                 <Route path={URLS.pack(":pack_id")} element={<PrivateRoute><Pack/></PrivateRoute>}/>
                 <Route path={URLS.addFlashCart(":pack_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
                 <Route path={URLS.updateFlashCart(":pack_id",":cart_id")} element={<PrivateRoute><AddFlashCards/></PrivateRoute>}/>
-                <Route path={URLS.updatePack(":pack_id")} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
+                <Route path={URLS.updatePack(":_id")} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
                 <Route path={URLS.addPack} element={<PrivateRoute><AddPack/></PrivateRoute>}/>
                 <Route path={URLS.dailyGoal} element={<PrivateRoute><DailyGoal/></PrivateRoute>}/>
                 <Route path={URLS.register} element={<PrivateRoute><Register/></PrivateRoute>}/>

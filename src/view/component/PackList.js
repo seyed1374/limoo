@@ -1,7 +1,6 @@
 import edit from "../../media/Vector4.svg"
 import edit2 from "../../media/edit2.svg"
 import filter from "../../media/Vector7.svg"
-
 import {useState} from "react"
 import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
@@ -19,7 +18,7 @@ function PackList({data: {_id, name, carts_count}})
 
     function toggleModal(e)
     {
-        e.stopPropagation()
+        e?.stopPropagation?.()
         setShowModal(showModal => !showModal)
     }
 

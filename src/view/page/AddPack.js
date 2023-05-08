@@ -1,7 +1,7 @@
 import ComeBack from "../component/ComeBack"
 import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
-import {useContext, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import {useNavigate, useParams} from "react-router-dom"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
@@ -11,12 +11,19 @@ import Input from "../component/input/Input"
 function AddPack()
 {
     let navigate = useNavigate()
+    const {state: pack} = useContext(PackContext)
     const {dispatch} = useContext(PackContext)
-
     const [name,setName]=useState("")
     const isBtnDisable = name.length < 3
-    const {pack_id} = useParams()
-    const isUpdate = !!pack_id
+    const {_id} = useParams()
+    const updatedPack = pack?.filter?.(item => item._id === _id)?.[0]
+
+
+
+    useEffect(() =>
+    {
+        packActions.getPack({dispatch})
+    }, [])
 
 
     function onNameChange(e){
@@ -47,7 +54,8 @@ function AddPack()
             <div className="add-package-header">
                 <div className="add-package-header-detail">
                     <ComeBack/>
-                    <div className="add-package-header-title">افزودن بسته ی جدید</div>
+                    <div className="add-package-header-title">
+                        افزودن بسته ی جدید</div>
                     <div className="add-package-header-empty"/>
                 </div>
                 <div className="add-package-border"/>
@@ -59,6 +67,7 @@ function AddPack()
                     placeholder="نام بسته خود را وارد کنید"
                     onChange={onNameChange}
                     onKeyDown={onKeyDown}
+                    defaultValue={updatedPack?.name}
                     name="name"
                     focusOnMount
                     showClear

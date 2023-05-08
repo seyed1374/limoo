@@ -1,6 +1,5 @@
 import limoo from "../../media/لـیـمـو.svg"
 import Button from "../component/Button"
-import profile from "../../media/Ellipse 31.png"
 import {useNavigate} from "react-router-dom"
 import {useContext, useEffect} from "react"
 import {UserContext} from "../../context/user/userReducer"
@@ -55,7 +54,7 @@ function HomePage()
                 }
             </div>
             <div className="homepage-footer">
-                <img className="homepage-footer-img" src={profile} alt="عکس" onClick={onProfileClick}/>
+                <img className="homepage-footer-img" src={"https://api.li-moo.ir/" + user.avatar} alt="عکس" onClick={onProfileClick}/>
                 <div className="homepage-footer-name" onClick={onProfileClick}>
                     <span>{user.first_name} </span>
                     {user.last_name}

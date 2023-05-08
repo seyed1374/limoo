@@ -1,4 +1,4 @@
-import {ADD_PACK, GET_PACK} from "./packTypes"
+import {ADD_PACK, GET_PACK, UPDATE_PACK} from "./packTypes"
 import request from "../../helpers/request"
 
 function makePack({data: {name}, dispatch})
@@ -8,7 +8,7 @@ function makePack({data: {name}, dispatch})
         {
             dispatch({
                 type: ADD_PACK,
-                payload: {pack: res.data.data}
+                payload: {pack: res.data.data},
             })
 
             return res
@@ -22,14 +22,27 @@ function getPack({dispatch})
         {
             dispatch({
                 type: GET_PACK,
-                payload: {pack: res.data.data}
+                payload: {pack: res.data.data},
+            })
+        })
+}
+
+function updatePack({pack_id, name, dispatch})
+{
+    return request.patch({url: "pack", data: {pack_id, name}})
+        .then(res =>
+        {
+            dispatch({
+                type: UPDATE_PACK,
+                payload: {pack: res.data.data},
             })
         })
 }
 
 const packActions = {
     makePack,
-    getPack
+    getPack,
+    updatePack,
 }
 
 export default packActions

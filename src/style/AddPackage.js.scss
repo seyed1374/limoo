@@ -19,6 +19,10 @@
 .add-package-header-title {
   font-size: var(--fifth-font-size);
   font-family: "my-font-demibold", serif;
+
+  &.none{
+    display: none;
+  }
 }
 
 .add-package-border {

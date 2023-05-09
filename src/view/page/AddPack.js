@@ -45,8 +45,16 @@ function AddPack()
         if (isUpdate)
         {
             packActions.updatePack({
-                data: {pack_id: _id, name, dispatch},
+                data: {pack_id: _id, name},
+                dispatch,
             })
+                .then(() =>
+                {
+                    window.history.back()
+                })
+                .catch(()=>{
+                    console.log("NOK")
+                })
         }
         else
         {

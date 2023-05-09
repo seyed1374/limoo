@@ -32,11 +32,13 @@ function PackCart({pack_id, data: {_id, front, back}})
 
     return (
         <>
-            <div className="practice-page2-flash-card">
-                <img className="practice-page2-flash-card-edit" src={edit} alt="edit" onClick={toggleModal}/>
-                <div>
-                    <div className="practice-page2-flash-card-on-card">{front}</div>
-                    <div className="practice-page2-flash-card-back-card">{back}</div>
+            <div>
+                <div className="practice-page2-flash-card">
+                    <img className="practice-page2-flash-card-edit" src={edit} alt="edit" onClick={toggleModal}/>
+                    <div>
+                        <div className="practice-page2-flash-card-on-card">{front}</div>
+                        <div className="practice-page2-flash-card-back-card">{back}</div>
+                    </div>
                 </div>
             </div>
 

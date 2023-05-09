@@ -31,9 +31,11 @@ function PackProvider({children})
             case UPDATE_PACK:
             {
                 const {pack} = payload
-                return{
-                    ...state,
-                    [pack._id]: pack,
+                const temp = [...state]
+                const packIndex = temp.findIndex(item => item._id === pack._id)
+                temp[packIndex] = pack
+                return {
+                    ...temp,
                 }
             }
             case DELETE_PACK:

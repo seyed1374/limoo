@@ -23,9 +23,6 @@ function HomePage()
     function onAddClick(e)
     {
         navigate(URLS.addPack)
-        // const file = e.target.files[0]
-        // const formData = new FormData()
-        // formData.append("excel", file)
     }
 
     function onProfileClick()

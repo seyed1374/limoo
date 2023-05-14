@@ -1,6 +1,5 @@
 import {createContext, useReducer} from "react"
 import {GET_PACK, ADD_PACK, UPDATE_PACK, DELETE_PACK} from "./packTypes"
-import {DELETE_CART} from "../cart/cartTypes"
 
 export const PackContext = createContext([])
 
@@ -34,18 +33,15 @@ function PackProvider({children})
                 const temp = [...state]
                 const packIndex = temp.findIndex(item => item._id === pack._id)
                 temp[packIndex] = pack
-                return {
-                    ...temp,
-                }
+                return temp
             }
             case DELETE_PACK:
             {
                 const {pack_id} = payload
-                let selectedPack = state[pack_id]
-                return {
-                    ...state,
-                    [pack_id]: selectedPack,
-                }
+                let newState = [...state]
+                const packIndex = newState.findIndex(item => item._id === pack_id)
+                newState.splice(packIndex, 1)
+                return newState
             }
             default:
                 return state

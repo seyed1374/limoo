@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom"
 import cartImg from "../../media/Vector.svg"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function PackList({data: {_id, name, carts_count}})
 {
@@ -30,6 +32,13 @@ function PackList({data: {_id, name, carts_count}})
     {
         toggleModal()
         packActions.deletePack({pack_id:_id, dispatch})
+            .then(()=>
+            {
+                toast.success(" با موفقیت حذف شد")
+            })
+            .catch(()=>{
+                toast.error("با خطا مواجه شد")
+            })
     }
 
     function onEdit()

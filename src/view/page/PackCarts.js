@@ -1,15 +1,18 @@
 import ComeBack from "../component/ComeBack"
 import search from "../../media/Vector3.svg"
+import add from "../../media/+.svg"
 import {CartContext} from "../../context/cart/cartReducer"
 import {useContext, useEffect} from "react"
 import cartActions from "../../context/cart/cartActions"
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import {PackContext} from "../../context/pack/packReducer"
 import packActions from "../../context/pack/packActions"
 import PackCart from "../component/PackCart"
+import URLS from "../../constant/URLS"
 
 function PackCarts()
 {
+    let navigate = useNavigate()
     const {pack_id} = useParams()
     const {state, dispatch} = useContext(CartContext)
     const carts = state[pack_id] ?? []
@@ -23,8 +26,12 @@ function PackCarts()
         packActions.getPack({dispatch: packDispatch})
     }, [])
 
+    function onAddCart(){
+        navigate(URLS.addFlashCart(selectedPack._id))
+    }
+
     return (
-        <div>
+        <div className="pack-carts">
             <div className="add-package-header-detail">
                 <ComeBack/>
                 <div className="add-package-header-title">{selectedPack?.name}</div>
@@ -41,6 +48,9 @@ function PackCarts()
                         <PackCart key={item._id} pack_id={pack_id} data={item}/>,
                     )
                 }
+                <div className="practice-page2-add" onClick={onAddCart}>
+                    <img src={add} alt={add}/>
+                </div>
             </div>
         </div>
     )

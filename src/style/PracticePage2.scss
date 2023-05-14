@@ -1,5 +1,6 @@
 .practice-page2-body {
   padding: 0 var(--second-solid-padding);
+  position: relative;
 }
 
 .practice-page2-search {
@@ -26,6 +27,21 @@
   left: 14px;
   width: 18px;
   height: 18px;
+}
+
+.practice-page2-add {
+  position: fixed;
+  top: 90vh;
+  right: calc(50% - 35px);
+  font-size: 30px;
+  color: var(--third-text-color);
+  border-radius: 100%;
+  background-color: var(--second-border-color);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .practice-page2-flash-card {

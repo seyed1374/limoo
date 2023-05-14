@@ -22,6 +22,9 @@ function Pack()
     const {dispatch: packDispatch} = useContext(PackContext)
     const {state: pack} = useContext(PackContext)
     const selectedPack = pack.filter(item => item._id === pack_id)[0]
+   // const file = e.target.files[0]
+    //const formData = new FormData()
+    //formData.append("excel", file)
 
     useEffect(() =>
     {

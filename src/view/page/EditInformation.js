@@ -6,6 +6,7 @@ import Button from "../component/Button"
 import userActions from "../../context/user/userActions"
 import {useNavigate} from "react-router-dom"
 import URLS from "../../constant/URLS"
+import {toast} from "react-toastify"
 
 function EditInformation()
 {
@@ -46,11 +47,11 @@ function EditInformation()
             .then(() =>
             {
                 navigate(URLS.profile)
-                console.log("OK")
+                toast.success(" با موفقیت ثبت شد")
             })
             .catch(() =>
             {
-                console.log("NOK")
+                toast.error("با خطا مواجه شد")
             })
     }
 

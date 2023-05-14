@@ -1,13 +1,13 @@
 import ComeBack from "../component/ComeBack"
 import color from "../../media/Ellipse 2.png"
 import Button from "../component/Button"
-import {useContext, useEffect, useState} from "react"
+import {useContext, useEffect, useId, useState} from "react"
 import {useNavigate, useParams} from "react-router-dom"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
 import URLS from "../../constant/URLS"
 import Input from "../component/input/Input"
-import cartActions from "../../context/cart/cartActions"
+import {toast} from "react-toastify"
 
 function AddPack()
 {
@@ -19,6 +19,7 @@ function AddPack()
     const {_id} = useParams()
     const isUpdate = !!_id
     const updatedPack = pack?.filter?.(item => item._id === _id)?.[0]
+    const addPackToast = useId()
 
 
     useEffect(() =>
@@ -29,6 +30,9 @@ function AddPack()
 
     function onNameChange({value})
     {
+        toast.success("لطفا حداقل سه حرف باشد", {
+            toastId: addPackToast,
+        })
         setName(value)
     }
 
@@ -50,10 +54,12 @@ function AddPack()
             })
                 .then(() =>
                 {
+                    toast.success(" به روزرسانی انجام شد")
                     window.history.back()
                 })
-                .catch(()=>{
-                    console.log("NOK")
+                .catch(() =>
+                {
+                    toast.error("به روزرسانی با خطا مواجه شده است")
                 })
         }
         else
@@ -61,11 +67,12 @@ function AddPack()
             packActions.makePack({data: {name}, dispatch})
                 .then(res =>
                 {
+                    toast.success(" با موفقیت ساخته شد")
                     navigate(URLS.pack(res.data.data._id))
                 })
                 .catch(() =>
                 {
-                    console.log("NOK")
+                    toast.error(" با خطا مواجه شدید")
                 })
         }
     }

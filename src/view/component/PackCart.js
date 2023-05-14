@@ -6,6 +6,7 @@ import {useContext, useState} from "react"
 import {CartContext} from "../../context/cart/cartReducer"
 import URLS from "../../constant/URLS"
 import {useNavigate} from "react-router-dom"
+import {toast} from "react-toastify"
 
 function PackCart({pack_id, data: {_id, front, back}})
 {
@@ -22,6 +23,13 @@ function PackCart({pack_id, data: {_id, front, back}})
     {
         toggleModal()
         cartActions.deleteCart({pack_id, cart_id: _id, dispatch})
+            .then(()=>
+            {
+                toast.success(" با موفقیت حذف شد")
+            })
+            .catch(()=>{
+                toast.error("با خطا مواجه شد")
+            })
     }
 
     function onEdit()
@@ -32,7 +40,6 @@ function PackCart({pack_id, data: {_id, front, back}})
 
     return (
         <>
-            <div>
                 <div className="practice-page2-flash-card">
                     <img className="practice-page2-flash-card-edit" src={edit} alt="edit" onClick={toggleModal}/>
                     <div>
@@ -40,8 +47,6 @@ function PackCart({pack_id, data: {_id, front, back}})
                         <div className="practice-page2-flash-card-back-card">{back}</div>
                     </div>
                 </div>
-            </div>
-
             {
                 showModal &&
                 <>

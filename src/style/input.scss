@@ -37,7 +37,7 @@
 
   &.ltr {
     direction: ltr;
-    font-family: "my-font-en", serif;
+    font-family: "my-font-demibold", serif;
 
     &.have-icon {
       padding-inline-start: calc(var(--input-height) / 4);
@@ -135,7 +135,7 @@
 }
 
 .input-label-title {
-  font-family: "my-font-regular", serif;
+  font-family: "my-font", serif;
   color: #8F9193;
   font-size: 14px;
   position: absolute;

@@ -1,11 +1,14 @@
 import ComeBack from "../component/ComeBack"
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import Button from "../component/Button"
-import {useContext, useEffect, useState} from "react"
+import {useContext, useEffect, useId, useState} from "react"
 import cartActions from "../../context/cart/cartActions"
 import {CartContext} from "../../context/cart/cartReducer"
 import packActions from "../../context/pack/packActions"
 import {PackContext} from "../../context/pack/packReducer"
+import Input from "../component/input/Input"
+import {toast} from "react-toastify"
+import URLS from "../../constant/URLS"
 
 function AddFlashCards()
 {
@@ -21,6 +24,11 @@ function AddFlashCards()
     const isUpdate = !!cart_id
     const selectedPack = pack.filter(item => item._id === pack_id)[0]
     const updatedCart = carts?.[pack_id]?.filter?.(item => item._id === cart_id)[0]
+    let navigate = useNavigate()
+    const addFlashCartToast = useId()
+    const onCartToast = useId()
+
+
 
     useEffect(() =>
     {
@@ -28,19 +36,25 @@ function AddFlashCards()
         cartActions.getCart({dispatch, pack_id})
     }, [])
 
-    function onChangeCard(e)
-    {
-        setOnCard(e.target.value)
+    function onCartClick(){
+        toast.warning("لطفا حداقل دو حرف باشد", {
+            toastId: onCartToast,
+        })
     }
 
-    function onChangeBackCard(e)
+    function onChangeCard({value})
     {
-        setOnBackCard(e.target.value)
+        setOnCard(value)
     }
 
-    function onChangeDescCard(e)
+    function onChangeBackCard({value})
     {
-        setOnDescCard(e.target.value)
+        setOnBackCard(value)
+    }
+
+    function onChangeDescCard({value})
+    {
+        setOnDescCard(value)
     }
 
     function onSubmit()
@@ -51,6 +65,17 @@ function AddFlashCards()
                 data: {front: onCard, back: onBackCard, back_description: onDescCard, pack_id, cart_id},
                 dispatch,
             })
+                .then(() =>
+                {
+                    toast.success(" با موفقیت ذخیره شد")
+                    navigate(URLS.packCarts(pack_id))
+                })
+                .catch(() =>
+                {
+                    toast.error("با خطا مواجه شد", {
+                        toastId: addFlashCartToast,
+                    })
+                })
         }
         else
         {
@@ -60,11 +85,14 @@ function AddFlashCards()
             })
                 .then(() =>
                 {
-                    console.log("OK")
+                    toast.success(" با موفقیت ذخیره شد")
+                    navigate(URLS.packCarts(pack_id))
                 })
                 .catch(() =>
                 {
-                    console.log("NOK")
+                    toast.error("با خطا مواجه شد", {
+                        toastId: addFlashCartToast,
+                    })
                 })
         }
     }
@@ -81,18 +109,41 @@ function AddFlashCards()
                     </div>
                     <div className="add-package-border"/>
                     <div className="making-flash-cards-body">
-                        <div className="making-flash-cards-body-name"> روی کارت</div>
-                        <input className="making-flash-cards-body-name-input"
-                               placeholder="متن روی کارت را بنویسید"
-                               onChange={onChangeCard} defaultValue={updatedCart?.front}/>
-                        <div className="making-flash-cards-body-name"> پشت کارت</div>
-                        <input className="making-flash-cards-body-name-input"
-                               placeholder="متن پشت کارت را بنویسید"
-                               onChange={onChangeBackCard} defaultValue={updatedCart?.back}/>
-                        <div className="making-flash-cards-body-name">مثال یا مترادف</div>
-                        <input className="making-flash-cards-body-name-input"
-                               placeholder="مثال یا مترادفی برای آن بنویسید"
-                               onChange={onChangeDescCard} defaultValue={updatedCart?.back_description}/>
+                        <Input
+                            className="making-flash-cards-body-name"
+                            label="روی کارت"
+                            placeholder="متن روی کارت را بنویسید"
+                            onChange={onChangeCard}
+                            onClick={onCartClick}
+                            defaultValue={updatedCart?.front}
+                            name="name"
+                            focusOnMount
+                            showClear
+                            disabled={false}
+                        />
+                        <Input
+                            className="making-flash-cards-body-name"
+                            label="پشت کارت"
+                            placeholder="متن پشت کارت را بنویسید"
+                            onChange={onChangeBackCard}
+                            onClick={onCartClick}
+                            defaultValue={updatedCart?.back}
+                            name="name"
+                            focusOnMount
+                            showClear
+                            disabled={false}
+                        />
+                        <Input
+                            className="making-flash-cards-body-name"
+                            label="مثال یا مترادف"
+                            placeholder="مثال یا مترادفی برای آن بنویسید"
+                            onChange={onChangeDescCard}
+                            defaultValue={updatedCart?.back_description}
+                            name="name"
+                            focusOnMount
+                            showClear
+                            disabled={false}
+                        />
                     </div>
                 </div>
                 <div className="making-flash-cards-btn"><Button value="ذخیره" isDisable={isBtnDisable}
